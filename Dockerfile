@@ -1,17 +1,16 @@
-FROM golang:1.23 AS build
+FROM golang:1.23-bookworm AS builder
 WORKDIR /app
-RUN useradd -u 1001 nonroot
-COPY go.* ./
+RUN useradd -r nonroot
+COPY go.mod go.sum ./
 RUN go mod download
 COPY . .
-RUN go build -o /rss-aggregator
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -o main .
 
-FROM alpine
-COPY --from=build /etc/passwd /etc/passwd
-COPY --from=build /app/rss-aggregator rss-aggregator
+FROM scratch
+COPY --from=builder /etc/passwd /etc/passwd
+COPY --from=builder --chown=nonroot:nonroot /app/main .
 USER nonroot
 EXPOSE 8080
-CMD ["./rss-aggregator"]
-
+CMD ["/main"]
 
 
