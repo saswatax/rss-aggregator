@@ -1,11 +1,11 @@
-package main
+package api
 
 import (
 	"fmt"
 	"net/http"
 
-	"github.com/saswatax/rss-aggregator/internal/auth"
-	"github.com/saswatax/rss-aggregator/internal/database"
+	"github.com/saswatax/rss-aggregator/internal/pkg/auth"
+	"github.com/saswatax/rss-aggregator/internal/pkg/database"
 )
 
 type authHandler func(http.ResponseWriter, *http.Request, database.User)

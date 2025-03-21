@@ -1,10 +1,10 @@
-package main
+package api
 
 import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/saswatax/rss-aggregator/internal/database"
+	"github.com/saswatax/rss-aggregator/internal/pkg/database"
 )
 
 type User struct {

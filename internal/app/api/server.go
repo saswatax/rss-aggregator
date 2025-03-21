@@ -1,4 +1,4 @@
-package main
+package api
 
 import (
 	"database/sql"
@@ -10,7 +10,8 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/cors"
 	"github.com/joho/godotenv"
-	"github.com/saswatax/rss-aggregator/internal/database"
+	"github.com/saswatax/rss-aggregator/internal/pkg/database"
+	"github.com/saswatax/rss-aggregator/internal/pkg/scraper"
 
 	_ "github.com/lib/pq"
 )
@@ -19,7 +20,7 @@ type apiConfig struct {
 	DB *database.Queries
 }
 
-func main() {
+func StartServer() {
 	godotenv.Load()
 
 	portString := os.Getenv("PORT")
@@ -42,7 +43,7 @@ func main() {
 		DB: db,
 	}
 
-	go startScraping(db, 10, time.Minute)
+	go scraper.StartScraping(db, 10, time.Minute)
 
 	router := chi.NewRouter()
 	router.Use(cors.Handler(cors.Options{

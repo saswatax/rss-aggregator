@@ -1,4 +1,4 @@
-package main
+package scraper
 
 import (
 	"context"
@@ -8,10 +8,10 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/saswatax/rss-aggregator/internal/database"
+	"github.com/saswatax/rss-aggregator/internal/pkg/database"
 )
 
-func startScraping(
+func StartScraping(
 	db *database.Queries,
 	concurrency int,
 	timeBetweenRequest time.Duration,

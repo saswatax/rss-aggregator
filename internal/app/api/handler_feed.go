@@ -1,4 +1,4 @@
-package main
+package api
 
 import (
 	"encoding/json"
@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/saswatax/rss-aggregator/internal/database"
+	"github.com/saswatax/rss-aggregator/internal/pkg/database"
 )
 
 func (apiCfg *apiConfig) handlerCreateFeed(w http.ResponseWriter, r *http.Request, user database.User) {

@@ -1,3 +1,5 @@
 .vscode/
-rss-aggregator
+bin/
 .env
+.env.*
+!.env.sample

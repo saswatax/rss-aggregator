@@ -1,4 +1,4 @@
-package main
+package api
 
 import (
 	"encoding/json"
@@ -8,7 +8,7 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/google/uuid"
-	"github.com/saswatax/rss-aggregator/internal/database"
+	"github.com/saswatax/rss-aggregator/internal/pkg/database"
 )
 
 func (apiCfg *apiConfig) handlerCreateFeedFollow(w http.ResponseWriter, r *http.Request, user database.User) {
