@@ -10,7 +10,7 @@ An RSS feed aggregator built with Go that allows users to create and subscribe t
 - Follow feeds and track updates.
 - Authentication for secure access.
 
-## 🛠️ Technologies Used
+## 🧑‍💻 Technologies Used
 
 - [Golang](https://golang.org)
 - [PostgreSQL](https://www.postgresql.org)
