@@ -1,5 +1,6 @@
-.vscode/
-bin/
 .env
 .env.*
-!.env.sample
+!.env.example
+
+.vscode/
+bin/
